@@ -21,12 +21,28 @@ const App = () => {
       setCtime(newTime);
     }
 
+    const [bg, setBg] = useState('color');
+    const [nameClick, setNameClick] = useState('Click me');
+
+    const bgChange = () => {
+      // console.log("clicked");
+      const color = '#FFDDCC';
+      let pink = '#9ED2BE';
+      setBg(pink);
+      setNameClick('Ouch!!!');
+    };
+
+    const bgBack = () => {
+      setBg('#F11A7B');
+      setNameClick('Hello Nilesh')
+    };
+
     setInterval(UpdateTime, 1000);
 
     return (
-        <div className = "centerdiv">
+        <div className = "centerdiv" style= {{backgroundColor: bg}}>
           <h1>{ctime}</h1>
-          <button onClick={UpdateTime}>Get Time</button>
+          <button onClick={bgChange} onDoubleClick={bgBack}>{nameClick}</button>
         </div>
     );
 };
